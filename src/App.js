@@ -3,11 +3,24 @@ import "./App.css";
 import { Row, Col, Form, FormGroup, Button } from "shards-react";
 import imageInSrc from "./Capture.PNG";
 import "./style.css";
+import Address from "./Component/Profile/Address";
+import FullName from "./Component/Profile/FullName";
+import ProfilPhoto from "./Component/Profile/ProfilPhoto";
 
 
 
 function App() {
-return(
+
+  return (
+    <>
+    <div>
+      <Address/>
+      <FullName/>
+      <ProfilPhoto/>
+    </div>
+    </>
+  );
+/*return(
   <>
 
 <div style={{border:'solid 1px black',maxwidth:'100vw'}}/>
@@ -21,7 +34,7 @@ return(
  <source src="myVideo.mp4" type="video/mp4" />
 </video>
 </>
-);
+);*/
 }
 
 
