@@ -6,29 +6,60 @@ import "./style.css";
 import Address from "./Component/Profile/Address";
 import FullName from "./Component/Profile/FullName";
 import ProfilPhoto from "./Component/Profile/ProfilPhoto";
-import Profile from "./Component/Profile/Profil"
-import photo from "./Capture.PNG"
+import Profile from "./Component/Profile/Profil";
+import photo from "./Capture.PNG";
+import { render } from "@testing-library/react";
+import { Component } from "react";
 
+class App extends Component {
+  state = {
+    profile: {
+      fullName: "Rayaaa",
+      bio: "okkkk",
+      imgSrc: "",
+      profession: "etudiante",
+    },
+    test: false,
+    timerID: 0,
+  };
+  handleClick = () => this.setState({ test: !this.state.test });
 
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        timerID: this.state.timerID + 1,
+      });
+    }, 1000);
+  }
 
-function App() {
+  /* componentWillUnmount() {
+      clearInterval(this.timerID);
+    }*/
 
-  return (
-    <>
-    <div>
-    
-    <Profile  profile={
-      {fullname:'raya'}
-    }  >
-      <img src={photo} className="imageInPublic"/>
-      
-      </Profile>
-   
-
-    </div>
-    </>
-  );
-/*return(
+  render() {
+    const { test ,timerID} = this.state;
+    return (
+      <div>
+        {test ? (
+          <>
+          <h1>{timerID}</h1>
+            <div>{this.state.profile.fullName} </div>
+            <div>{this.state.profile.bio} </div>
+            <div>{this.state.profile.profession} </div>
+            <img src={photo} className="imageInPublic" />
+          </>
+        ) : (
+          <>
+            <div>
+              <div>
+                <button onClick={this.handleClick}> state button </button>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    );
+    /*return(
   <>
 
 <div style={{border:'solid 1px black',maxwidth:'100vw'}}/>
@@ -43,13 +74,9 @@ function App() {
 </video>
 </>
 );*/
-}
+  }
 
-
-
-
-
-   /* let firstName = "Raya";
+  /* let firstName = "Raya";
     let lastName = "Hadhri";
     return (
       <React.Fragment>
@@ -78,8 +105,8 @@ function App() {
 </React.Fragment>
 
     );*/
-   
- /* return (
+
+  /* return (
    <>
       <Form>
         <Col md="6" className="form-group">
@@ -131,4 +158,6 @@ function App() {
       </Form>
    </>
   );}*/
+}
+
 export default App;
