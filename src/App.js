@@ -6,6 +6,8 @@ import "./style.css";
 import Address from "./Component/Profile/Address";
 import FullName from "./Component/Profile/FullName";
 import ProfilPhoto from "./Component/Profile/ProfilPhoto";
+import Profile from "./Component/Profile/Profil"
+import photo from "./Capture.PNG"
 
 
 
@@ -14,9 +16,15 @@ function App() {
   return (
     <>
     <div>
-      <Address/>
-      <FullName/>
-      <ProfilPhoto/>
+    
+    <Profile  profile={
+      {fullname:'raya'}
+    }  >
+      <img src={photo} className="imageInPublic"/>
+      
+      </Profile>
+   
+
     </div>
     </>
   );
