@@ -3,9 +3,10 @@ import movies from "../Movie/MovieList";
 import MovieCardExample from "../MovieCard/MovieCard";
 import "./Movie.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-var variable = "";
+var variable = "titre";
 export default function Filter() {
   const [MoviesList, setMoviesList] = useState(movies);
+  const [isShow, setIsShow] = useState(false);
   const [Movies, setMovie] = useState({
     titre: "",
     description: "",
@@ -15,15 +16,34 @@ export default function Filter() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setMovie({ ...Movies, [name]: value });
+    setMovie({ ...Movies, [name]: value});
+
+    console.log(e.target.value)
+    variable=e.target.value
   };
+
+
+
   const handleSubmit = () => {
     setMoviesList([Movies, ...MoviesList]);
     setMovie({ titre: "", description: "", posterUrl: "", rate: "" });
   };
+
+  const handleChange1 = () => {
+  setIsShow(!isShow);
+ 
+  };
   console.log("movie list", MoviesList);
   return (
+   <>
+  
+ 
+        
+     
+      
+   
     <div className="container">
+    <input type="text" style={{width:450,height:30}} placeholder="Search" onChange={handleChange}  value={variable.value} />
       <Form>
         <FormGroup>
           <Label for="titre">titre</Label>
@@ -76,7 +96,11 @@ export default function Filter() {
       </Form>
 
       <div className="movies-container">
-        {MoviesList?.map((e, i) => {
+        {
+          console.log(variable),
+        
+        MoviesList?.map((e, i) => {
+         
         if(e.titre==variable || e.rate==variable){
           return (
             <>
@@ -86,9 +110,13 @@ export default function Filter() {
             </>
           );
         }
-        })}
+        })
+        
+        }
       </div>
       
     </div>
+    </>
   );
+ 
 }
