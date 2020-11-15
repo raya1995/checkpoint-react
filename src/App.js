@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Row, Col, Form, FormGroup, Button } from "shards-react";
 import imageInSrc from "./Capture.PNG";
@@ -6,13 +6,32 @@ import "./style.css";
 import Address from "./Component/Profile/Address";
 import FullName from "./Component/Profile/FullName";
 import ProfilPhoto from "./Component/Profile/ProfilPhoto";
-import Profile from "./Component/Profile/Profil";
+import Exemple_Hooks from "./Component/Profile/ExempleHooks";
 import photo from "./Capture.PNG";
 import { render } from "@testing-library/react";
 import { Component } from "react";
+import Filter from "./Component/Movie/Filter";
+import Mooo from "./Component/Movie/MovieList";
+import MovieList from "./Component/Movie/MovieList";
+import MovieCardExample from "./Component/MovieCard/MovieCard";
 
-class App extends Component {
-  state = {
+const App = () => {
+  return (
+    <>
+      <div>
+        <Filter />
+      </div>
+    </>
+  );
+};
+export default App;
+
+
+
+
+
+
+ /* state = {
     profile: {
       fullName: "Rayaaa",
       bio: "okkkk",
@@ -30,14 +49,13 @@ class App extends Component {
         timerID: this.state.timerID + 1,
       });
     }, 1000);
+
   }
+*/
 
-  /* componentWillUnmount() {
-      clearInterval(this.timerID);
-    }*/
 
-  render() {
-    const { test ,timerID} = this.state;
+
+  /* const { test ,timerID} = this.state;
     return (
       <div>
         {test ? (
@@ -47,6 +65,8 @@ class App extends Component {
             <div>{this.state.profile.bio} </div>
             <div>{this.state.profile.profession} </div>
             <img src={photo} className="imageInPublic" />
+            <Exemple_Hooks/>
+            
           </>
         ) : (
           <>
@@ -54,11 +74,12 @@ class App extends Component {
               <div>
                 <button onClick={this.handleClick}> state button </button>
               </div>
+         
             </div>
           </>
         )}
       </div>
-    );
+    );*/
     /*return(
   <>
 
@@ -74,7 +95,7 @@ class App extends Component {
 </video>
 </>
 );*/
-  }
+  
 
   /* let firstName = "Raya";
     let lastName = "Hadhri";
@@ -158,6 +179,3 @@ class App extends Component {
       </Form>
    </>
   );}*/
-}
-
-export default App;
